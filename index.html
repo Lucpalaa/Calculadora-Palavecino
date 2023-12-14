@@ -3,29 +3,28 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Calculadora</title>
-    <link rel="stylesheet" href="style.css" />
+    <title>Simulaciones</title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
   </head>
-
   <body>
     <div class="container">
       <label for="numeros">Ingrese los números (separados por coma):</label>
       <input type="text" id="numeros" placeholder="Ejemplo: 1, 2, 3" />
+    </div>
 
-      <div class="buttons">
-        <button id="sumar">Sumar</button>
-        <button id="restar">Restar</button>
-        <button id="multiplicar">Multiplicar</button>
-        <button id="division">Dividir</button>
-        <button id="buscar">Buscar Número</button>
-        <button id="filtrar">Filtrar Números</button>
-      </div>
+    <div class="container">
+      <button id="sumar">Sumar</button>
+      <button id="restar">Restar</button>
+      <button id="multiplicar">Multiplicar</button>
+      <button id="division">División</button>
+      <button id="buscar">Buscar Número</button>
+      <button id="filtrar">Filtrar Números</button>
+      <button id="guardar">Guardar en LocalStorage</button>
+      <button id="cargar">Cargar desde LocalStorage</button>
+      <button id="cargarDesdeJSON">Cargar desde JSON</button>
+    </div>
 
-      <div class="storage-buttons">
-        <button id="guardar">Guardar Lista</button>
-        <button id="cargar">Cargar Lista</button>
-      </div>
-
+    <div class="container">
       <div id="resultado"></div>
     </div>
 

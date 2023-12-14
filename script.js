@@ -11,10 +11,9 @@ document.addEventListener("DOMContentLoaded", function () {
   const divisionBtn = document.getElementById("division");
   const buscarBtn = document.getElementById("buscar");
   const filtrarBtn = document.getElementById("filtrar");
-
-  // Obtener referencias a botones de almacenamiento
   const guardarBtn = document.getElementById("guardar");
   const cargarBtn = document.getElementById("cargar");
+  const cargarDesdeJSONBtn = document.getElementById("cargarDesdeJSON");
 
   // Asignar eventos a los botones
   sumarBtn.addEventListener("click", () => calcular("suma"));
@@ -27,6 +26,7 @@ document.addEventListener("DOMContentLoaded", function () {
   );
   guardarBtn.addEventListener("click", () => guardarLista(numerosInput.value));
   cargarBtn.addEventListener("click", () => cargarLista());
+  cargarDesdeJSONBtn.addEventListener("click", () => cargarDesdeJSON());
 
   // Funciones de cálculo
   function sumar(a, b) {
@@ -121,5 +121,23 @@ document.addEventListener("DOMContentLoaded", function () {
     } else {
       mostrarResultado("No hay lista de números guardada en localStorage.");
     }
+  }
+
+  // Función para cargar la lista de números desde un archivo JSON
+  function cargarDesdeJSON() {
+    fetch("datos.json")
+      .then((response) => response.json())
+      .then((data) => {
+        if (data.numeros && Array.isArray(data.numeros)) {
+          numerosInput.value = data.numeros.join(", ");
+          mostrarResultado("Datos cargados desde el archivo JSON.");
+        } else {
+          mostrarResultado("Formato de archivo JSON no válido.");
+        }
+      })
+      .catch((error) => {
+        console.error("Error al cargar desde JSON:", error);
+        mostrarResultado("Error al cargar desde el archivo JSON.");
+      });
   }
 });
